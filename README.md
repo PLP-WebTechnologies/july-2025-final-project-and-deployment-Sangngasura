@@ -80,7 +80,7 @@ wearbest-fashions/
 
 This site is deployed on:  
 
-- [Vercel]([https://vercel.com/](https://transcendent-biscuit-d3c0e5.netlify.app/))  
+- [Vercel]([https://vercel.com/](https://transcendent-biscuit-d3c0e5.netlify.app/)  
 
 ---
 
