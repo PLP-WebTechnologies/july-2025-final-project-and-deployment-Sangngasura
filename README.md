@@ -22,9 +22,7 @@ wearbest-fashions/
 │
 ├── index.html          # Homepage with cart, checkout, customer account
 ├── account.html        # Manage customer orders & statuses
-├──
-├──
-├──
+
 ├── login.html          # Customer login/signup + password reset
 ├── products.html       # Product listing (product1.jpg – product8.jpg)
 ├── /admin/             # Admin panel (separate login), Generate POS receipts, View sales reports
