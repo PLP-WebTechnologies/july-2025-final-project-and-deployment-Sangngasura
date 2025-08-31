@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Account — Wearbest</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="account">
+  <header class="site-header">
+    <div class="brand"><div class="logo">W</div><div>WEARBEST FASHIONS</div></div>
+    <div class="header-actions">
+      <a class="header-link" href="index.html">Shop</a>
+      <span data-account-link></span>
+      <button class="btn" data-toggle-cart>Cart (<span data-cart-count>0</span>)</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2>My account</h2>
+    <div class="profile-grid">
+      <div class="card small">
+        <h3>Profile</h3>
+        <form onsubmit="saveProfileChanges(event)">
+          <label class="small">Name</label><input id="profile-name" class="input" required>
+          <label class="small">Phone</label><input id="profile-phone" class="input" required>
+          <label class="small">Email</label><input id="profile-email" class="input" type="email" required>
+          <label class="small">Shipping address</label><input id="profile-address" class="input">
+          <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
+            <button class="btn" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card small">
+        <h3>Orders</h3>
+        <div id="account-orders"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="cart-drawer" class="cart-drawer"><div class="head"><strong>Your Cart</strong><div><button class="btn secondary" onclick="toggleCartDrawer()">Close</button></div></div><div class="cart-items"></div><div class="cart-footer"><div><strong>Total:</strong> <span data-total>KES 0</span></div><div><button class="btn" onclick="openCheckoutModal()">Checkout</button></div></div></div>
+
+  <footer class="site-footer">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between">
+      <div>WEARBEST FASHIONS · Kapsabet</div>
+      <div><a class="site-footer muted" href="admin-login.html">Admin</a></div>
+    </div>
+  </footer>
+</body>
+</html>

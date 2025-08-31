@@ -1,90 +1,109 @@
-# 📦 Final Assignment: Build, Organize, and Deploy a Multipage Website
+# WEARBEST FASHIONS  
 
-You're now ready to bring everything together—HTML, CSS, JavaScript, planning, structure, and deployment. This final project challenges you to **conceptualize, build, and deploy a multi-page website** that is responsive, interactive, and ready for the real world.
-
-This assignment will guide you from planning your site all the way to deploying it online. Let’s make your project *production-worthy*! 🚀
+An e-commerce demo website for **Wearbest Fashions**. The project showcases a full multipage site with **customer and admin panels**, shopping cart, checkout, and inventory management. It was built with **HTML5, CSS3, and JavaScript**, and organized for production-ready deployment.  
 
 ---
 
-## 🌐🎯 Part 1: Planning and Organizing a Multipage Website
+## 🌐 Project Purpose  
 
-Before you write any code, take time to plan:
+The purpose of this website is to simulate a working online store for **Wearbest Fashions** (Kapsabet). It demonstrates:  
+- A **customer experience** (browsing products, managing cart, checkout, placing orders).  
+- An **admin experience** (inventory management, customer orders, sales, receipt generation).  
+- **Responsive and modern design**, with semantic HTML and reusable components.  
 
-* Define your website's purpose (portfolio, product showcase, blog, etc.)
-* Outline 3–5 pages (e.g., Home, About, Services, Contact, Gallery)
-* Sketch or describe the layout of each page
-* Map out internal navigation (how pages link to one another)
-
-**Goal:** Show intentional structure and user journey across the site.
+This project is part of a final assignment to build, organize, and deploy a **multi-page website** that’s interactive, mobile-friendly, and well-structured.  
 
 ---
 
-## 🌍💻 Part 2: Build the Website Using HTML5, CSS, and JavaScript
+## 📂 Project Structure  
 
-Using your plan, begin building:
-
-* Use HTML5 for semantic structure
-* Apply CSS for responsive layout, styling, and animations
-* Use JavaScript to add interactivity (menus, forms, toggles, dynamic content)
-
-Each page should:
-
-* Be mobile-responsive
-* Share a consistent layout/header/footer
-* Include at least one interactive element (e.g., form validation, toggle menu, animation on scroll)
-
-**Goal:** Integrate everything you’ve learned in a cohesive, functioning project.
-
----
-
-## 🛠️🚀 Part 3: Best Practices for Code Organization
-
-Before deployment, refactor your project to follow production-friendly practices:
-
-* Organize files in folders (`/css`, `/js`, `/images`, etc.)
-* Write clean, modular, and commented code
-* Use meaningful file names and relative paths
-* Validate your HTML/CSS and test on different screen sizes
-
-**Goal:** Prepare your codebase to be readable, maintainable, and scalable.
-
----
-
-## 🌐🚀 Part 4: Introduction to Hosting and Deployment
-
-Once your project is complete, choose a method to **host your site online**.
-
-You can use:
-
-* **GitHub Pages** (great for portfolios and static sites)
-* **Netlify** (powerful CI/CD features and easy form support)
-* **Vercel** (lightning-fast deployment for frontend projects)
-
-Deploy your project and confirm that:
-
-* All links and scripts work
-* It loads properly on mobile and desktop
-* It has a clear, shareable URL
-
-**Goal:** Publish your work online and make it accessible to the world.
+```bash
+wearbest-fashions/
+│
+├── index.html          # Homepage with cart, checkout, customer account
+├── account.html        # Manage customer orders & statuses
+├──
+├──
+├──
+├── login.html          # Customer login/signup + password reset
+├── products.html       # Product listing (product1.jpg – product8.jpg)
+├── /admin/             # Admin panel (separate login), Generate POS receipts, View sales reports
+│
+├── /css/
+│   └── style.css       # Main styles (navy blue theme, responsive design)
+│
+├── /js/
+│   ├── app.js         # Customer side logic (cart, checkout, forms) Admin panel logic
+│
+├── /images/            # Product images
+│   ├── product1.jpg
+│   ├── product2.jpg
+│   └── ... product8.jpg
+│
+└── README.md           # Project documentation
+```
 
 ---
 
-## Deliverables
+## ✨ Features  
 
-1. A GitHub repository containing:
+### 👤 Customer Panel  
+- **Responsive login & signup** with mock Google login  
+- **Email verification mock** after signup  
+- **Cart system** with product count badge  
+- **Checkout** supporting M-Pesa, card, and cash on delivery  
+- **Auto-fill name & phone** from account (editable at checkout)  
+- **Order history & statuses** (Placed → Confirmed → Shipping → Received)  
+- **Reviews with images** after delivery  
+- **Account management** (update details, password reset, shipping addresses)  
+- Sticky footer with **muted admin login link**  
 
-   * Your complete project code, properly organized
-   * A `README.md` file explaining your project purpose, structure, and live URL
-2. A live deployed website (hosted via GitHub Pages, Netlify, or Vercel)
+### 🛒 Admin Panel  
+- Separate **restricted login**  
+- Dashboard with **4 tabs**:  
+  - **Inventory**: add, edit, update products, apply discounts  
+  - **Orders**: update status, send customer messages  
+  - **Sales**: view reports  
+  - **Receipts**: generate POS receipts (print-friendly)  
+- File uploads or image URLs for products  
 
 ---
 
-## Outcome
+## 🛠️ Tech Stack  
 
-* Clarity and thoroughness of planning documentation
-* Proper use of HTML5, CSS, and JavaScript across multiple pages
-* Responsive and accessible design
-* Clean, well-organized, and commented code
-* Successful live deployment with a working link
-* Evidence of following best practices
+- **HTML5** – semantic structure  
+- **CSS3** – responsive, navy blue theme, sticky footer  
+- **JavaScript (ES6)** – cart, forms, interactivity  
+- **Mock Payment** – M-Pesa and card checkout UI (placeholders, not live)  
+
+---
+
+## 🚀 Deployment  
+
+This site is deployed on:  
+
+- [Vercel](https://vercel.com/)  
+
+---
+
+## 📱 Responsiveness  
+
+- Mobile-first CSS layout  
+- Scales across phones, tablets, desktops  
+- Sticky footer always stays at bottom  
+
+---
+
+## 🧑‍💻 Author  
+
+**Clement Kiptoo**  
+📍 Kapsabet  
+
+---
+
+## ✅ Outcome  
+
+- Multipage, responsive, interactive website  
+- Clean project structure with separate folders (`/css`, `/js`, `/admin`, `/images`)  
+- Customer and admin workflows implemented  
+- Deployed with *https://transcendent-biscuit-d3c0e5.netlify.app/*

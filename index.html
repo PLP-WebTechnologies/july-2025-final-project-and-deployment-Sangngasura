@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WEARBEST FASHIONS — Shop</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><div class="logo">W</div><div>WEARBEST FASHIONS</div></div>
+    <div class="header-actions">
+      <a class="header-link" href="products.html">Products</a>
+      <span data-account-link></span>
+      <button class="btn" data-toggle-cart>Cart (<span data-cart-count>0</span>)</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section style="margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Shop</h2>
+
+      </div>
+    </section>
+
+    <section id="product-grid" class="grid"></section>
+  </main>
+
+  <!-- cart drawer -->
+  <div id="cart-drawer" class="cart-drawer" aria-hidden="true">
+    <div class="head">
+      <strong>Your Cart</strong>
+      <div><button class="btn secondary" onclick="toggleCartDrawer()">Close</button></div>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div><strong>Total:</strong> <span data-total>KES 0</span></div>
+      <div>
+        <button class="btn" onclick="openCheckoutModal()">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- checkout modal -->
+  <div id="checkout-modal" class="checkout-modal" role="dialog" aria-modal="true">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <h3>Checkout</h3>
+      <button class="btn secondary" onclick="closeCheckoutModal()">Close</button>
+    </div>
+    <form onsubmit="placeOrderFromModal(event)" style="display:block">
+      <div class="form-grid">
+        <div>
+          <label class="small">Full name</label>
+          <input id="chk-name" class="input" required>
+          <label class="small" style="margin-top:8px">Phone</label>
+          <input id="chk-phone" class="input" required>
+          <label class="small" style="margin-top:8px">Shipping address</label>
+          <textarea id="chk-address" class="input" rows="3" required></textarea>
+
+          <div style="margin-top:10px">
+            <div class="small">Payment method</div>
+            <div style="display:flex;gap:8px;margin-top:6px">
+              <label><input type="radio" name="pay-method" value="mpesa" onchange="togglePaymentFieldsInModal()" checked> M-Pesa</label>
+              <label><input type="radio" name="pay-method" value="card" onchange="togglePaymentFieldsInModal()"> Card</label>
+              <label><input type="radio" name="pay-method" value="cod" onchange="togglePaymentFieldsInModal()"> Cash on delivery</label>
+            </div>
+            <div id="chk-mpesa-field" style="margin-top:8px">
+              <input id="chk-mpesa" class="input" placeholder="M-Pesa phone (07...)" >
+            </div>
+            <div id="chk-card-field" style="display:none;margin-top:8px">
+              <input id="chk-card" class="input" placeholder="Card number">
+              <div class="row-cols" style="margin-top:8px">
+                <input class="input" placeholder="MM/YY">
+                <input class="input" placeholder="CVV">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside style="background:#fbfdff;border:1px solid var(--border);padding:12px;border-radius:10px">
+          <h4>Order summary</h4>
+          <div id="checkout-summary" style="margin-top:8px">
+            <div class="kv">Items will be listed here</div>
+          </div>
+        </aside>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
+        <button class="btn secondary" type="button" onclick="closeCheckoutModal()">Cancel</button>
+        <button class="btn" type="submit">Place order</button>
+      </div>
+    </form>
+  </div>
+
+  <footer class="site-footer">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+      <div>WEARBEST FASHIONS · Kapsabet · 0710203040 · wearbest.co.ke</div>
+      <div><a class="site-footer muted" href="admin-login.html">Admin</a></div>
+    </div>
+  </footer>
+</body>
+</html>

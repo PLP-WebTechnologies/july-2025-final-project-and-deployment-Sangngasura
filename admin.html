@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin Panel — Wearbest</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="brand"><div class="logo">W</div><div>WEARBEST — Admin</div></div>
+    <div class="header-actions">
+      <a class="header-link" href="index.html">View shop</a>
+      <button class="btn" onclick="(sessionStorage.removeItem('wb_admin'),location.href='index.html')">Logout</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2>Admin panel</h2>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tab-inv" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('panel-inv').style.display='block'; document.getElementById('panel-orders').style.display='none'; document.getElementById('panel-sales').style.display='none'; document.getElementById('panel-receipt').style.display='none';">Inventory</button>
+      <button class="tab" id="tab-orders" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('panel-inv').style.display='none'; document.getElementById('panel-orders').style.display='block'; document.getElementById('panel-sales').style.display='none'; document.getElementById('panel-receipt').style.display='none'; renderAdminOrders();">Customer orders</button>
+      <button class="tab" id="tab-sales" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('panel-inv').style.display='none'; document.getElementById('panel-orders').style.display='none'; document.getElementById('panel-sales').style.display='block'; document.getElementById('panel-receipt').style.display='none'; renderAdminSales();">Sales</button>
+      <button class="tab" id="tab-receipt" onclick="document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('panel-inv').style.display='none'; document.getElementById('panel-orders').style.display='none'; document.getElementById('panel-sales').style.display='none'; document.getElementById('panel-receipt').style.display='block';">Receipt generation</button>
+    </div>
+
+    <section id="panel-inv">
+      <h3>Inventory</h3>
+      <div id="admin-inventory"></div>
+      <hr>
+      <h4>Add product</h4>
+      <form id="add-product-form" onsubmit="addNewAdminProduct(event)">
+        <div class="row-cols">
+          <input id="new-name" class="input" placeholder="Name" required>
+          <input id="new-price" class="input" placeholder="Price" required>
+        </div>
+        <div class="row-cols" style="margin-top:8px">
+          <input id="new-stock" class="input" placeholder="Stock" required>
+          <input id="new-image" class="input" placeholder="Image URL (or choose file)" >
+        </div>
+        <div style="margin-top:8px">
+          <input id="new-file" type="file" accept="image/*">
+        </div>
+        <div style="margin-top:8px;display:flex;justify-content:flex-end">
+          <button class="btn" type="submit">Add product</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="panel-orders" style="display:none;margin-top:16px">
+      <h3>Customer orders</h3>
+      <div id="admin-orders"></div>
+    </section>
+
+    <section id="panel-sales" style="display:none;margin-top:16px">
+      <h3>Sales</h3>
+      <div id="admin-sales"></div>
+    </section>
+
+    <section id="panel-receipt" style="display:none;margin-top:16px">
+      <h3>Receipt generation</h3>
+      <div id="receipt-list" style="margin-top:8px"></div>
+      <div style="margin-top:8px">
+        <button class="btn" onclick="(function(){ const orders = lsGet(KEYS.orders,[]); const list = orders.map(o=>`<div style='margin-bottom:8px'>Order ${o.id} · ${o.status} · ${formatKES(o.totals.total)} <button class='btn small' onclick='printOrderReceipt(\"${o.id}\")'>Print</button></div>`).join(''); document.getElementById('receipt-list').innerHTML = list; })()">Load orders</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between">
+      <div>WEARBEST FASHIONS · Admin</div>
+      <div><a class="site-footer muted" href="index.html">View shop</a></div>
+    </div>
+  </footer>
+</body>
+</html>

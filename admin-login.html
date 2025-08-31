@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin Login — Wearbest</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><div class="logo">W</div><div>WEARBEST FASHIONS - Admin</div></div>
+  </header>
+
+  <main class="main" style="max-width:560px;margin:40px auto">
+    <div class="card small">
+      <h3>Admin login</h3>
+      <form onsubmit="(function(e){ e.preventDefault(); if(adminEmail.value==='admin@wearbest.co.ke' && adminPass.value==='admin123'){ sessionStorage.setItem('wb_admin','1'); location.href='admin.html'; } else alert('Invalid admin credentials'); })(event)">
+        <label class="small">Email</label><input id="adminEmail" class="input" type="email" required>
+        <label class="small">Password</label><input id="adminPass" class="input" type="password" required>
+        <div style="margin-top:8px;display:flex;justify-content:flex-end"><button class="btn" type="submit">Login</button></div>
+      </form>
+      <div class="kv" style="margin-top:8px">Demo credentials: admin@wearbest.co.ke / admin123</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between">
+      <div>WEARBEST FASHIONS · Admin</div>
+      <div><a class="site-footer muted" href="index.html">Shop</a></div>
+    </div>
+  </footer>
+</body>
+</html>

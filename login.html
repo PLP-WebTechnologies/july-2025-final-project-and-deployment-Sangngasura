@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login — Wearbest</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+  <style>
+    .auth-wrap{max-width:900px;margin:30px auto;display:grid;grid-template-columns:1fr 420px;gap:18px}
+    .auth-card{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--border)}
+    .social{display:flex;gap:8px}
+    @media (max-width:900px){ .auth-wrap{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><div class="logo">W</div><div>WEARBEST FASHIONS</div></div>
+    <div class="header-actions">
+      <a class="header-link" href="index.html">Shop</a>
+      <span data-account-link></span>
+      <button class="btn" data-toggle-cart>Cart (<span data-cart-count>0</span>)</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="auth-wrap">
+      <div class="auth-card">
+        <h3>Login</h3>
+        <form id="login-form" onsubmit="(function(e){e.preventDefault(); const params = new URLSearchParams(location.search); const redirect = params.get('redirect'); const openCheckout = params.get('openCheckout'); const ok = loginCustomer(document.getElementById('login-email').value, document.getElementById('login-pass').value, redirect || null, openCheckout==='1'); if(!ok) alert('Invalid credentials'); })(event)">
+          <label class="small">Email</label>
+          <input id="login-email" class="input" type="email" required>
+          <label class="small">Password</label>
+          <input id="login-pass" class="input" type="password" required>
+          <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
+            <button class="btn" type="submit">Login</button>
+          </div>
+        </form>
+
+        <div style="margin-top:12px" class="kv">
+          <a href="#" onclick="(function(){ const email = prompt('Enter your account email for reset:'); if(!email) return; const users = lsGet(KEYS.users, []); const u = users.find(x=>x.email.toLowerCase() === email.toLowerCase()); if(!u){ alert('No account with that email'); return; } const np = prompt('Enter new password:'); if(np){ u.password = np; lsSet(KEYS.users, users); alert('Password reset. Please login.'); } })(); return false;">Forgot password?</a>
+        </div>
+
+        <hr style="margin:12px 0">
+        <div class="small">Or continue with</div>
+        <div class="social" style="margin-top:8px">
+          <button class="btn" style="background:#db4437" onclick="(function(){ const users = lsGet(KEYS.users, []); let u = users.find(x=>x.email === 'demo.google@wearbest.local'); if(!u){ u = {id:'u'+Date.now(), name:'Demo Google', email:'demo.google@wearbest.local', phone:'0710203040', password:'demo', shipping:{}}; users.push(u); lsSet(KEYS.users, users); } setCurrentUser(u); const params = new URLSearchParams(location.search); const redirect = params.get('redirect'); const openCheckout = params.get('openCheckout'); if(redirect){ if(openCheckout==='1') location.href = redirect + '#checkout'; else location.href = redirect;} else location.href='account.html'; })()">Google (demo)</button>
+        </div>
+      </div>
+
+      <div class="auth-card">
+        <h3>Create account</h3>
+        <form id="signup-form" onsubmit="(function(e){ e.preventDefault(); const r = signupCustomer({ name: document.getElementById('signup-name').value, phone: document.getElementById('signup-phone').value, email: document.getElementById('signup-email').value, password: document.getElementById('signup-pass').value }); if(r && r.error) alert(r.error); })(event)">
+          <label class="small">Full name</label><input id="signup-name" class="input" required>
+          <label class="small">Phone</label><input id="signup-phone" class="input" required>
+          <label class="small">Email</label><input id="signup-email" class="input" type="email" required>
+          <label class="small">Password</label><input id="signup-pass" class="input" type="password" required>
+          <div style="margin-top:8px;display:flex;justify-content:flex-end"><button class="btn" type="submit">Create account</button></div>
+        </form>
+        <div class="kv" style="margin-top:12px">Signing up takes you straight to your account where you can update shipping details and see orders.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between">
+      <div>WEARBEST FASHIONS · Kapsabet · 0710203040</div>
+      <div><a class="site-footer muted" href="admin-login.html">Admin</a></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Products — Wearbest</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><div class="logo">W</div><div>WEARBEST FASHIONS</div></div>
+    <div class="header-actions">
+      <a class="header-link" href="index.html">Shop</a>
+      <span data-account-link></span>
+      <button class="btn" data-toggle-cart>Cart (<span data-cart-count>0</span>)</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2>All Products</h2>
+    <section id="product-grid" class="grid"></section>
+  </main>
+
+  <div id="cart-drawer" class="cart-drawer"><div class="head"><strong>Your Cart</strong><div><button class="btn secondary" onclick="toggleCartDrawer()">Close</button></div></div><div class="cart-items"></div><div class="cart-footer"><div><strong>Total:</strong> <span data-total>KES 0</span></div><div><button class="btn" onclick="openCheckoutModal()">Checkout</button></div></div></div>
+
+  <footer class="site-footer">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between">
+      <div>WEARBEST FASHIONS · Kapsabet · 0710203040</div>
+      <div><a class="site-footer muted" href="admin-login.html">Admin</a></div>
+    </div>
+  </footer>
+</body>
+</html>
